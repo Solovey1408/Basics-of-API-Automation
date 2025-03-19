@@ -34,5 +34,24 @@ class TestCreateJoke:
         assert joke_category == types, 'Test Failed'
         print('Test Success')
 
+        # Получение текста сетапа шутки из ответа
+        check_setup_text = check_joke[0].get('setup')
+        print(check_setup_text)
+
+        # Получение текста панчлайна шутки из ответа
+        check_punchline_text = check_joke[0].get('punchline')
+        print(check_punchline_text)
+
+        # Слово, которое нужно найти
+        name_in_joke = 'Chuck'
+
+        #Ищем Chuck в сетапе и панчлайне шутки
+        if name_in_joke in check_setup_text:
+            print(f'Chuck is found in {check_setup_text}')
+        elif name_in_joke in check_punchline_text:
+            print(f'Chuck is found in {check_punchline_text}')
+        else:
+            print(f'Chuck is not found in joke')
+
 start = TestCreateJoke() # Создание экземпляра класса
 start.test_create_random_joke() # Вызов метода
